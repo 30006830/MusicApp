@@ -10,5 +10,38 @@
 
     <Grid>
 
+        <!-- Splitview -->
+        <SplitView x:Name="SplitViewMenu" Grid.Column="0" Grid.Row="1" IsPaneOpen="False" DisplayMode="CompactInline" CompactPaneLength="60" OpenPaneLength="375">
+            <SplitView.Pane>
+                <StackPanel Background="RoyalBlue">
+                    <StackPanel Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" FontSize="25" Content="&#xE700;" Width="60" Height="50" Background="Transparent" Click="Button_Click"/>
+                        <TextBlock Name="Title" Text="AudioCumulus" FontFamily="Lato" FontSize="28" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="HomeIcon" FontFamily="Segoe MDL2 Assets"  FontSize="25" Content="&#xE80F;" Width="60" Height="50" Background="Transparent" Click="HomeIcon_Click"/>
+                        <TextBlock Name="Home" FontSize="22" Width="315" Text="Home" VerticalAlignment="Center" Tapped="Home_Tapped" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="LibraryIcon" FontFamily="Segoe MDL2 Assets" FontSize="25" Content="&#xE736;" Width="60" Height="50" Background="Transparent" Click="LibraryIcon_Click"/>
+                        <TextBlock Name="Library" FontSize="22" Width="315" Text="Library" VerticalAlignment="Center" Tapped="Library_Tapped"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="MusicPlayerIcon" FontFamily="Segoe MDL2 Assets" FontSize="25" Content="&#xE93C;" Width="60" Height="50" Background="Transparent" Click="MusicPlayerIcon_Click"/>
+                        <TextBlock Name="MusicPlayer" FontSize="22" Width="315" Text="Music Player" VerticalAlignment="Center" Tapped="MusicPlayer_Tapped"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="VideoPlayerIcon" FontFamily="Segoe MDL2 Assets" FontSize="25" Content="&#xE768;" Width="60" Height="50" Background="Transparent" Click="VideoPlayerIcon_Click"/>
+                        <TextBlock Name="VideoPlayer" FontSize="22" Width="315" Text="Video Player" VerticalAlignment="Center" Tapped="VideoPlayer_Tapped"/>
+                    </StackPanel>
+                </StackPanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <!-- Create a frame inside the  -->
+                <ScrollViewer Grid.Column="1">
+                    <Frame x:Name="Container"/>
+                </ScrollViewer>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>

@@ -25,6 +25,58 @@ namespace AudioCumulus
         public MainPage()
         {
             this.InitializeComponent();
+            Container.Navigate(typeof(Home));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (SplitViewMenu.IsPaneOpen == false)
+            {
+                SplitViewMenu.IsPaneOpen = true;
+            }
+            else if (SplitViewMenu.IsPaneOpen == true)
+            {
+                SplitViewMenu.IsPaneOpen = false;
+            }
+        }
+        private void HomeIcon_Click(object sender, RoutedEventArgs e)
+        {
+            Container.Navigate(typeof(Home));
+        }
+
+        private void Home_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Container.Navigate(typeof(Home));
+        }
+
+        private void LibraryIcon_Click(object sender, RoutedEventArgs e)
+        {
+            Container.Navigate(typeof(Library));
+        }
+
+        private void Library_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Container.Navigate(typeof(Library));
+        }
+
+        private void MusicPlayerIcon_Click(object sender, RoutedEventArgs e)
+        {
+            Container.Navigate(typeof(MusicPlayer));
+        }
+
+        private void MusicPlayer_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Container.Navigate(typeof(MusicPlayer));
+        }
+
+        private void VideoPlayerIcon_Click(object sender, RoutedEventArgs e)
+        {
+            Container.Navigate(typeof(VideoPlayer));
+        }
+
+        private void VideoPlayer_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Container.Navigate(typeof(VideoPlayer));
         }
     }
 }
