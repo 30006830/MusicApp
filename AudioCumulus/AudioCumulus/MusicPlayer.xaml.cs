@@ -26,10 +26,5 @@ namespace AudioCumulus
         {
             this.InitializeComponent();
         }
-
-        private void ClickMe_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Home));
-        }
     }
 }
