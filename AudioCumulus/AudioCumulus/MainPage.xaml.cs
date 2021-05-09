@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyToolkit.Multimedia;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace AudioCumulus
         {
             this.InitializeComponent();
             Container.Navigate(typeof(Home));
-        }
+        }        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

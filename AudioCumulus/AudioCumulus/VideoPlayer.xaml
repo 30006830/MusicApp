@@ -8,16 +8,23 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     RequestedTheme="Dark">
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton Icon="Library" Label="Open File" Tapped="AppBarButton_Tapped"/>
+        </CommandBar>
+    </Page.BottomAppBar>
 
     <!-- https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/media-playback -->
     <!--https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font-->
     <!--https://social.technet.microsoft.com/wiki/contents/articles/38014.universal-windows-application-play-a-youtube-video.aspx-->
-    
+
     <Grid>
-        <MediaPlayerElement x:Name="mediaPlayerElement"
-                            AutoPlay="False" 
-                            AreTransportControlsEnabled="True"
-                            Source="ms-appx:///Media/Track1.mp4"
-                            PosterSource="Assets/posterimage.jpg"/>
+        <ScrollViewer Height="2000" VerticalScrollBarVisibility="Visible">
+            
+            <MediaElement x:Name="mediaElement" AutoPlay="False" AreTransportControlsEnabled="True" PosterSource="Assets/posterimage.jpg" VerticalAlignment="Top"/>
+        </ScrollViewer>
     </Grid>
 </Page>
