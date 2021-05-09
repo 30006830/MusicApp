@@ -9,15 +9,27 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     RequestedTheme="Dark">
 
-    <Grid>
+    <Grid Background="#111321">
         <Grid.RowDefinitions>
             <RowDefinition Height="21*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Background="#111321">
-            <MediaElement x:Name="musicPlayer" AreTransportControlsEnabled="True" Height="90"/>
 
-
-        </StackPanel>
+        <MediaElement x:Name="musicPlayer"
+                      Grid.RowSpan="2"
+                      AreTransportControlsEnabled="True">
+            <MediaElement.TransportControls>
+                <MediaTransportControls VerticalAlignment="Bottom"
+                                        Height="90"
+                                        IsPlaybackRateButtonVisible="True"
+                                        IsPlaybackRateEnabled="True"
+                                        IsFastForwardButtonVisible="True"
+                                        IsFastForwardEnabled="True"
+                                        IsFastRewindButtonVisible="True"
+                                        IsFastRewindEnabled="True"
+                                        IsStopButtonVisible="True"
+                                        IsStopEnabled="True"/>
+            </MediaElement.TransportControls>
+        </MediaElement>
     </Grid>
 </Page>

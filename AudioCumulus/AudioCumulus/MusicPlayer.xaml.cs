@@ -7,6 +7,8 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.Media.Core;
+using Windows.Media.Playback;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,16 +28,20 @@ namespace AudioCumulus
     {
         public MusicPlayer()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();                       
         }
 
-
+        private async void musicPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            await SetLocalMedia();
+        }
+    
 
         async private System.Threading.Tasks.Task SetLocalMedia()
         {
             var pickFile = new FileOpenPicker();
 
-            pickFile.FileTypeFilter.Add(".mp4");
+            pickFile.FileTypeFilter.Add(".mp3");
             pickFile.FileTypeFilter.Add(".wmv");
             pickFile.FileTypeFilter.Add(".mkv");
 

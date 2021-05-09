@@ -21,10 +21,28 @@
     <!--https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font-->
     <!--https://social.technet.microsoft.com/wiki/contents/articles/38014.universal-windows-application-play-a-youtube-video.aspx-->
 
-    <Grid>
-        <ScrollViewer Height="2000" VerticalScrollBarVisibility="Visible">
-            
-            <MediaElement x:Name="mediaElement" AutoPlay="False" AreTransportControlsEnabled="True" PosterSource="Assets/posterimage.jpg" VerticalAlignment="Top"/>
-        </ScrollViewer>
+    <Grid Background="#111321">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3.6*"/>
+        </Grid.ColumnDefinitions>
+        <MediaElement x:Name="mediaElement"
+                      Grid.Column="1"
+                      Grid.ColumnSpan="2"
+                      AutoPlay="True"
+                      AreTransportControlsEnabled="True"
+                      PosterSource="Assets/posterimage.jpg"
+                      Width="1000"
+                      HorizontalAlignment="Right"
+                      VerticalAlignment="Top" RequestedTheme="Dark">
+            <MediaElement.TransportControls>
+                <MediaTransportControls IsFastForwardButtonVisible="True"
+                                            IsFastForwardEnabled="True"
+                                            IsFastRewindButtonVisible="True"
+                                            IsFastRewindEnabled="True"
+                                            IsStopButtonVisible="True"
+                                            IsStopEnabled="True"/>
+            </MediaElement.TransportControls>
+        </MediaElement>
     </Grid>
 </Page>
