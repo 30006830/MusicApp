@@ -8,41 +8,73 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     RequestedTheme="Dark">
-    <Page.BottomAppBar>
-        <CommandBar>
-            <CommandBar.Content>
-                <Grid/>
-            </CommandBar.Content>
-            <AppBarButton Icon="Library" Label="Open File" Tapped="AppBarButton_Tapped"/>
-        </CommandBar>
-    </Page.BottomAppBar>
+
 
     <!-- https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/media-playback -->
     <!--https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font-->
     <!--https://social.technet.microsoft.com/wiki/contents/articles/38014.universal-windows-application-play-a-youtube-video.aspx-->
 
     <Grid Background="#111321">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3.6*"/>
-        </Grid.ColumnDefinitions>
-        <MediaElement x:Name="mediaElement"
-                      Grid.Column="1"
-                      Grid.ColumnSpan="2"
-                      AutoPlay="True"
-                      AreTransportControlsEnabled="True"
-                      PosterSource="Assets/posterimage.jpg"
-                      Width="1000"
-                      HorizontalAlignment="Right"
-                      VerticalAlignment="Top" RequestedTheme="Dark">
-            <MediaElement.TransportControls>
-                <MediaTransportControls IsFastForwardButtonVisible="True"
-                                            IsFastForwardEnabled="True"
-                                            IsFastRewindButtonVisible="True"
-                                            IsFastRewindEnabled="True"
-                                            IsStopButtonVisible="True"
-                                            IsStopEnabled="True"/>
-            </MediaElement.TransportControls>
-        </MediaElement>
+        <StackPanel VerticalAlignment="Top">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" Grid.Row="1">
+                    <MediaElement x:Name="mediaElement"
+                                  AutoPlay="True"
+                                  Grid.Column="1"                                  
+                                  AreTransportControlsEnabled="True" 
+                                  PosterSource="Assets/posterimage.jpg"                           
+                                  Grid.ColumnSpan="3"                          
+                                  HorizontalAlignment="Right" Visibility="Visible" RequestedTheme="Dark">
+                        <MediaElement.TransportControls>
+                            <MediaTransportControls IsPlaybackRateButtonVisible="True"
+                                                IsPlaybackRateEnabled="True"
+                                                IsFastForwardButtonVisible="True"
+                                                IsFastForwardEnabled="True"
+                                                IsFastRewindButtonVisible="True"
+                                                IsFastRewindEnabled="True"
+                                                IsStopButtonVisible="True"
+                                                IsStopEnabled="True"/>
+                        </MediaElement.TransportControls>
+                    </MediaElement>
+
+                    <VariableSizedWrapGrid Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,46">
+                        <Button x:Name="myBtn" Width="150" Height="50" Background="#e235" Tapped="myBtn_Tapped" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Folder"/>
+                                <TextBlock TextWrapping="Wrap" Text=" Open File"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="myBtn1" Width="150" Height="50" Background="#e235" Tapped="myBtn1_Tapped" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Refresh"/>
+                                <TextBlock TextWrapping="Wrap" Text=" Reset Player"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="myBtn2" Width="150" Height="50" Background="#e235" Tapped="myBtn2_Tapped" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Mute"/>
+                                <TextBlock TextWrapping="Wrap" Text=" Mute Volume"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="myBtn3" Width="150" Height="50" Background="#e235" Tapped="myBtn3_Tapped" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <SymbolIcon Symbol="Volume"/>
+                                <TextBlock TextWrapping="Wrap" Text=" Unmute Volume"/>
+                            </StackPanel>
+                        </Button>
+                    </VariableSizedWrapGrid>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+
     </Grid>
 </Page>

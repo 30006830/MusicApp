@@ -23,9 +23,25 @@ namespace AudioCumulus
             this.InitializeComponent();
         }
         
-        private async void AppBarButton_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void myBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
             await SetLocalMedia();
+        }
+
+        private void myBtn1_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaElement.Stop();
+            mediaElement.Source = null;
+        }
+
+        private void myBtn2_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaElement.IsMuted = true;
+        }
+
+        private void myBtn3_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            mediaElement.IsMuted = false;
         }
 
         async private System.Threading.Tasks.Task SetLocalMedia()
@@ -34,13 +50,13 @@ namespace AudioCumulus
 
             pickFile.FileTypeFilter.Add(".mp4");
             pickFile.FileTypeFilter.Add(".wmv");
-            pickFile.FileTypeFilter.Add(".mkv");            
+            pickFile.FileTypeFilter.Add(".mkv");
 
             pickFile.SuggestedStartLocation = PickerLocationId.VideosLibrary;
 
             StorageFile file = await pickFile.PickSingleFileAsync();
 
-            if(file != null)
+            if (file != null)
             {
                 var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
                 mediaElement.SetSource(stream, file.ContentType);
