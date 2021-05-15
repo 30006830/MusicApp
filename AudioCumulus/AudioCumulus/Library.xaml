@@ -10,24 +10,14 @@
     RequestedTheme="Dark">
 
     <Grid Background="#111321">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        
-        <!-- For padding -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="1">
-            <TextBlock Text="Library" Grid.Column="1" FontFamily="Corbel Light" FontSize="30" TextWrapping="Wrap"/>
-            <TextBlock Text="This is how it works" Grid.Column="1" FontFamily="Corbel Light" FontSize="20"></TextBlock>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="YouTube Videos" Margin="20 20 0 0"/>
+        
         
         
     </Grid>

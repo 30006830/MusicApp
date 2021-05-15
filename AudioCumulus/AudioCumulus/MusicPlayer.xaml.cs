@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -31,6 +31,7 @@ namespace AudioCumulus
             this.InitializeComponent();                       
         }
 
+
         private async void musicPlayer_Click(object sender, RoutedEventArgs e)
         {
             await SetLocalMedia();
@@ -42,8 +43,6 @@ namespace AudioCumulus
             var pickFile = new FileOpenPicker();
 
             pickFile.FileTypeFilter.Add(".mp3");
-            pickFile.FileTypeFilter.Add(".wmv");
-            pickFile.FileTypeFilter.Add(".mkv");
 
             pickFile.SuggestedStartLocation = PickerLocationId.VideosLibrary;
 

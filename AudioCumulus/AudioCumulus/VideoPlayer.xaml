@@ -10,32 +10,49 @@
     RequestedTheme="Dark">
 
 
-    <!-- https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/media-playback -->
-    <!--https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font-->
-    <!--https://social.technet.microsoft.com/wiki/contents/articles/38014.universal-windows-application-play-a-youtube-video.aspx-->
+    <!-- https://github.com/Vijay-Nirmal/UWP-YouTube-Player/blob/master/VideoPlayerPage.xaml -->
 
     <Grid Background="#111321">
         <StackPanel VerticalAlignment="Top">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="1" Grid.Row="1">
-                    <MediaElement x:Name="mediaElement"
+                <StackPanel Grid.Row="0" Grid.Column="1">
+                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" TextWrapping="Wrap" FontSize="40" 
+                               Text="Video Player" Grid.ColumnSpan="2" Grid.Row="1"/>
+                    <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="Wrap" FontSize="20" 
+                               Text="This is a video player hard-coded into the application where the videos the user selects is from their computer. This utilizes a filepicker to open a file location selection window where the user can navigate their computers files to select a video file with an extension that the application will take." Grid.ColumnSpan="2" Grid.Row="1"/>
+                </StackPanel>
+
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                        <MediaElement x:Name="mediaElement"
                                   AutoPlay="True"
                                   Grid.Column="1"                                  
                                   AreTransportControlsEnabled="True" 
                                   PosterSource="Assets/posterimage.jpg"                           
                                   Grid.ColumnSpan="3"                          
                                   HorizontalAlignment="Right" Visibility="Visible" RequestedTheme="Dark">
-                        <MediaElement.TransportControls>
-                            <MediaTransportControls IsPlaybackRateButtonVisible="True"
+                            <MediaElement.TransportControls>
+                                <MediaTransportControls IsPlaybackRateButtonVisible="True"
                                                 IsPlaybackRateEnabled="True"
                                                 IsFastForwardButtonVisible="True"
                                                 IsFastForwardEnabled="True"
@@ -43,38 +60,42 @@
                                                 IsFastRewindEnabled="True"
                                                 IsStopButtonVisible="True"
                                                 IsStopEnabled="True"/>
-                        </MediaElement.TransportControls>
-                    </MediaElement>
+                            </MediaElement.TransportControls>
+                        </MediaElement>
 
-                    <VariableSizedWrapGrid Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,46">
-                        <Button x:Name="myBtn" Width="150" Height="50" Background="#e235" Tapped="myBtn_Tapped" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal">
-                                <SymbolIcon Symbol="Folder"/>
-                                <TextBlock TextWrapping="Wrap" Text=" Open File"/>
-                            </StackPanel>
-                        </Button>
-                        <Button x:Name="myBtn1" Width="150" Height="50" Background="#e235" Tapped="myBtn1_Tapped" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal">
-                                <SymbolIcon Symbol="Refresh"/>
-                                <TextBlock TextWrapping="Wrap" Text=" Reset Player"/>
-                            </StackPanel>
-                        </Button>
-                        <Button x:Name="myBtn2" Width="150" Height="50" Background="#e235" Tapped="myBtn2_Tapped" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal">
-                                <SymbolIcon Symbol="Mute"/>
-                                <TextBlock TextWrapping="Wrap" Text=" Mute Volume"/>
-                            </StackPanel>
-                        </Button>
-                        <Button x:Name="myBtn3" Width="150" Height="50" Background="#e235" Tapped="myBtn3_Tapped" HorizontalAlignment="Center">
-                            <StackPanel Orientation="Horizontal">
-                                <SymbolIcon Symbol="Volume"/>
-                                <TextBlock TextWrapping="Wrap" Text=" Unmute Volume"/>
-                            </StackPanel>
-                        </Button>
+                        <VariableSizedWrapGrid Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,46">
+                            <Button x:Name="myBtn" Width="150" Height="50" Background="#e235" Tapped="myBtn_Tapped" HorizontalAlignment="Center">
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Folder"/>
+                                    <TextBlock TextWrapping="Wrap" Text=" Open File"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="myBtn1" Width="150" Height="50" Background="#e235" Tapped="myBtn1_Tapped" HorizontalAlignment="Center">
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Refresh"/>
+                                    <TextBlock TextWrapping="Wrap" Text=" Reset Player"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="myBtn2" Width="150" Height="50" Background="#e235" Tapped="myBtn2_Tapped" HorizontalAlignment="Center">
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Mute"/>
+                                    <TextBlock TextWrapping="Wrap" Text=" Mute Volume"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="myBtn3" Width="150" Height="50" Background="#e235" Tapped="myBtn3_Tapped" HorizontalAlignment="Center">
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Volume"/>
+                                    <TextBlock TextWrapping="Wrap" Text=" Unmute Volume"/>
+                                </StackPanel>
+                            </Button>
+                        </VariableSizedWrapGrid>
+                    </StackPanel>
+                    <VariableSizedWrapGrid Grid.Row="1" Grid.ColumnSpan="3">
+                        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Youtube Integration" TextWrapping="Wrap" FontSize="40"/>
+                        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="This is an integrated YouTube video player configured with the Google.Apis.YouTube.v3 API. If you can watch videos on YouTube on this application then I have succeeded in creating it." FontSize="20"/>
                     </VariableSizedWrapGrid>
-                </StackPanel>
+                </Grid>
             </Grid>
         </StackPanel>
-
     </Grid>
 </Page>
