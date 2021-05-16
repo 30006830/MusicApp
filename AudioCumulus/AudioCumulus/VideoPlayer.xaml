@@ -5,9 +5,8 @@
     xmlns:local="using:AudioCumulus"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    RequestedTheme="Dark">
+    xmlns:themes="using:AudioCumulus.Customize"
+    mc:Ignorable="d">
 
 
     <!-- https://github.com/Vijay-Nirmal/UWP-YouTube-Player/blob/master/VideoPlayerPage.xaml -->
@@ -90,10 +89,6 @@
                             </Button>
                         </VariableSizedWrapGrid>
                     </StackPanel>
-                    <VariableSizedWrapGrid Grid.Row="1" Grid.ColumnSpan="3">
-                        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Youtube Integration" TextWrapping="Wrap" FontSize="40"/>
-                        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Text="This is an integrated YouTube video player configured with the Google.Apis.YouTube.v3 API. If you can watch videos on YouTube on this application then I have succeeded in creating it." FontSize="20"/>
-                    </VariableSizedWrapGrid>
                 </Grid>
             </Grid>
         </StackPanel>

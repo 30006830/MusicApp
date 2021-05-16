@@ -1,13 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
+﻿using MyToolkit.Multimedia;
+using System;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
+using Windows.Media.Core;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using Windows.Storage.Streams;
-using Windows.UI.Popups;
-using Windows.Media.Core;
-using Windows.Media.Playback;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Navigation;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,7 +26,7 @@ namespace AudioCumulus
         {
             this.InitializeComponent();
         }
-        
+
         private async void myBtn_Tapped(object sender, TappedRoutedEventArgs e)
         {
             await SetLocalMedia();

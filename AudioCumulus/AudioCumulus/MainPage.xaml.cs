@@ -49,16 +49,6 @@ namespace AudioCumulus
             Container.Navigate(typeof(Home));
         }
 
-        private void LibraryIcon_Click(object sender, RoutedEventArgs e)
-        {
-            Container.Navigate(typeof(Library));
-        }
-
-        private void Library_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            Container.Navigate(typeof(Library));
-        }
-
         private void MusicPlayerIcon_Click(object sender, RoutedEventArgs e)
         {
             Container.Navigate(typeof(MusicPlayer));

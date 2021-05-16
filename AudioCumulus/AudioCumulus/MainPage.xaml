@@ -19,24 +19,21 @@
                         <Button FontFamily="Segoe MDL2 Assets" FontSize="25" Content="&#xE700;" Width="60" Height="50" Background="Transparent" Click="Button_Click"></Button>                        
                         <TextBlock Name="Title" Text="AudioCumulus" FontFamily="Lato" FontSize="28" VerticalAlignment="Center"/>
                     </StackPanel>
+                    
                     <StackPanel Orientation="Horizontal">
                         <Button Name="HomeIcon" FontFamily="Segoe MDL2 Assets"  FontSize="25" Content="&#xE80F;" Width="60" Height="50" Background="Transparent" Click="HomeIcon_Click"/>
                         <StackPanel Tapped="Home_Tapped" Height="50" Width="315" VerticalAlignment="Center">
                             <TextBlock x:Name="Home" FontSize="22" Height="50" Text="Home" Margin="0,8"/>
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Button Name="LibraryIcon" FontFamily="Segoe MDL2 Assets" FontSize="25" Content="&#xE736;" Width="60" Height="50" Background="Transparent" Click="LibraryIcon_Click"/>
-                        <StackPanel Tapped="Library_Tapped" Height="50" Width="315" VerticalAlignment="Center">
-                            <TextBlock x:Name="Library" FontSize="22" Text="Library" Margin="0,8"/>
-                        </StackPanel>
-                    </StackPanel>
+                    
                     <StackPanel Orientation="Horizontal">
                         <Button Name="MusicPlayerIcon" FontFamily="Segoe MDL2 Assets" FontSize="25" Content="&#xE93C;" Width="60" Height="50" Background="Transparent" Click="MusicPlayerIcon_Click"/>
                         <StackPanel Tapped="MusicPlayer_Tapped" Height="50" Width="315" VerticalAlignment="Center">
                             <TextBlock x:Name="MusicPlayer" FontSize="22" Text="Music Player" Margin="0,8"/>
                         </StackPanel>
                     </StackPanel>
+                    
                     <StackPanel Orientation="Horizontal">
                         <Button Name="VideoPlayerIcon" FontFamily="Segoe MDL2 Assets" FontSize="25" Content="&#xE768;" Width="60" Height="50" Background="Transparent" Click="VideoPlayerIcon_Click"/>
                         <StackPanel Tapped="VideoPlayer_Tapped" Height="50" Width="315" VerticalAlignment="Center">
