@@ -22,10 +22,39 @@
         <StackPanel Grid.Column="1" Grid.Row="1">
             <TextBlock Style="{StaticResource HeaderTextBlockStyle}"    Text="Welcome To AudioCumulus"/>
             <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Text="Music Player &amp; Video Player Application"><LineBreak/></TextBlock>
-            <TextBlock Style="{StaticResource SubtitleTextBlockStyle}"  Text="Current Updates:"/>
+            <TextBlock Style="{StaticResource SubtitleTextBlockStyle}"  Text="Current Additions Made:"/>
             <VariableSizedWrapGrid>
-                <ListView x:Name="BulletPointList"/>
+                <RichTextBlock>
+                    <Paragraph>
+                        <Run FontFamily="Segoe MDL2 Assets" Text="&#xE915;"/>
+                        <Run Text="Home page with list of additions that have been made"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontFamily="Segoe MDL2 Assets" Text="&#xE915;"/>
+                        <Run Text="A folder has a series of music tracks &amp; video that are zipped in the folder"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontFamily="Segoe MDL2 Assets" Text="&#xE915;"/>
+                        <Run Text="A video player that has a series of buttons"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontFamily="Segoe MDL2 Assets" Text="&#xE915;"/>
+                        <Run Text="A music player with accompanying controls e.g. Pause, Stop, Fast Forward, Fast Rewind, etc."/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run FontFamily="Segoe MDL2 Assets" Text="&#xE915;"/>
+                        <Run Text="Fluid UI created without using NavigationView UI controls"/>
+                    </Paragraph>
+                </RichTextBlock>
+                
             </VariableSizedWrapGrid>
+            <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Check these out"/>
+            <Button x:Name="btnHighEndIntelGuide" Height="300" Width="250" Background="#e4e4e4" Padding="0" Click="btnHighEndIntelGuide_Click">
+                <Grid Height="300" Width="250">
+                    <Image HorizontalAlignment="Center" VerticalAlignment="Top" Height="170" Margin="0,20,0,0"/>
+                    <TextBlock TextWrapping="Wrap"><Run Text=""/></TextBlock>
+                </Grid>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>
