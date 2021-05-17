@@ -22,7 +22,7 @@
         <StackPanel Grid.Column="1" Grid.Row="1">
             <TextBlock Style="{StaticResource HeaderTextBlockStyle}"    Text="Welcome To AudioCumulus"/>
             <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" Text="Music Player &amp; Video Player Application"><LineBreak/></TextBlock>
-            <TextBlock Style="{StaticResource SubtitleTextBlockStyle}"  Text="Current Additions Made:"/>
+            <TextBlock Style="{StaticResource SubtitleTextBlockStyle}"  Text="Current Additions Made: (If it's highlighted red then it's important)"/>
             <VariableSizedWrapGrid>
                 <RichTextBlock>
                     <Paragraph>
@@ -31,7 +31,7 @@
                     </Paragraph>
                     <Paragraph>
                         <Run FontFamily="Segoe MDL2 Assets" Text="&#xE915;"/>
-                        <Run Text="A folder has a series of music tracks &amp; video that are zipped in the folder"/>
+                        <Run Foreground="Red"  Text="A folder has a series of music tracks &amp; video that are zipped in the folder"/>
                     </Paragraph>
                     <Paragraph>
                         <Run FontFamily="Segoe MDL2 Assets" Text="&#xE915;"/>
@@ -49,12 +49,40 @@
                 
             </VariableSizedWrapGrid>
             <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Check these out"/>
-            <Button x:Name="btnHighEndIntelGuide" Height="300" Width="250" Background="#e4e4e4" Padding="0" Click="btnHighEndIntelGuide_Click">
-                <Grid Height="300" Width="250">
-                    <Image HorizontalAlignment="Center" VerticalAlignment="Top" Height="170" Margin="0,20,0,0"/>
-                    <TextBlock TextWrapping="Wrap"><Run Text=""/></TextBlock>
-                </Grid>
-            </Button>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="btnMusicPlayer" Height="300" Width="250" Background="#e4e4e4" Padding="0" Tapped="btnMusicPlayer_Tapped" Margin="0,0,20,0"> 
+                    <Grid Height="300" Width="250">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="150" HorizontalAlignment="Center" Text="&#xEC4F;" Foreground="Black" Margin="0,40" TextWrapping="Wrap"/>
+                        <TextBlock FontFamily="Corbel Light" 
+                                   Text="Click here for the Music Player"
+                                   Foreground="Black"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   Margin="0,20"/>
+                    </Grid>
+                </Button>
+                
+                <Button Name="btnVideoPlayer" Height="300" Width="250" Background="#e4e4e4" Padding="0" Tapped="btnVideoPlayer_Tapped">
+                    <Grid Height="300" Width="250">
+                        <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="150" HorizontalAlignment="Center" Text="&#xE7F4;" Foreground="Black" Margin="0,40" TextWrapping="Wrap"/>
+                        <TextBlock FontFamily="Corbel Light" 
+                                   Text="Click here for the Video Player"
+                                   Foreground="Black"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Center"
+                                   Margin="0,20"/>
+                    </Grid>
+                </Button>   
+            </StackPanel>
+            
+
+            
         </StackPanel>
     </Grid>
 </Page>

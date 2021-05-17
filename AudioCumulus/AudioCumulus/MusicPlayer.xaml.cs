@@ -9,6 +9,7 @@ using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Media.Core;
 using Windows.Media.Playback;
+using Windows.Media.Playlists;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -16,16 +17,18 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace AudioCumulus
-{
+{    
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MusicPlayer : Page
     {
+        private ObservableCollection<musicLibrary> MusicList = new ObservableCollection<musicLibrary>();
         public MusicPlayer()
         {
             this.InitializeComponent();                       
@@ -44,7 +47,7 @@ namespace AudioCumulus
 
             pickFile.FileTypeFilter.Add(".mp3");
 
-            pickFile.SuggestedStartLocation = PickerLocationId.VideosLibrary;
+            pickFile.SuggestedStartLocation = PickerLocationId.MusicLibrary;
 
             StorageFile file = await pickFile.PickSingleFileAsync();
 

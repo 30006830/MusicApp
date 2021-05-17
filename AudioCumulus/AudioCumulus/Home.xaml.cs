@@ -25,5 +25,15 @@ namespace AudioCumulus
         {
             this.InitializeComponent();          
         }
+
+        private void btnMusicPlayer_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MusicPlayer));
+        }
+
+        private void btnVideoPlayer_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(VideoPlayer));
+        }
     }
 }

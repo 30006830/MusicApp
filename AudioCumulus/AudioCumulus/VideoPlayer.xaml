@@ -5,7 +5,6 @@
     xmlns:local="using:AudioCumulus"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:themes="using:AudioCumulus.Customize"
     mc:Ignorable="d">
 
 
@@ -28,6 +27,8 @@
                                Text="Video Player" Grid.ColumnSpan="2" Grid.Row="1"/>
                     <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="Wrap" FontSize="20" 
                                Text="This is a video player hard-coded into the application where the videos the user selects is from their computer. This utilizes a filepicker to open a file location selection window where the user can navigate their computers files to select a video file with an extension that the application will take." Grid.ColumnSpan="2" Grid.Row="1"/>
+                    <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" TextWrapping="Wrap" FontSize="20" 
+                               Text="There will be two extra folders in the application folder listed &quot;Videos&quot; &amp; &quot;Music&quot;. These contain Videos for the Video Player and the same with Music" Grid.ColumnSpan="2" Grid.Row="1"/>
                 </StackPanel>
 
                 <Grid Grid.Row="1" Grid.Column="1">

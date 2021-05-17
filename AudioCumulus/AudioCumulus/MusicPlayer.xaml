@@ -11,12 +11,44 @@
 
     <Grid Background="#111321">
         <Grid.RowDefinitions>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="List of Music" Grid.Column="1"/>
+
+        <VariableSizedWrapGrid Grid.Row="1" Grid.Column="1">
+            <Button Height="50" Width="150" Click="musicPlayer_Click"/>
+            <ListView ItemsSource="{x:Bind MusicList}" Grid.ColumnSpan="2" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="File Name: "/>
+                            <TextBlock Text="{Binding fileName}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Artist: "/>
+                            <TextBlock Text="{Binding Artist}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Album: "/>
+                            <TextBlock Text="{Binding Album}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </VariableSizedWrapGrid>
         <MediaElement x:Name="musicPlayer"
-                      Grid.RowSpan="2"
+                      Grid.RowSpan="3"
+                      Grid.ColumnSpan="3"
                       AreTransportControlsEnabled="True">
             <MediaElement.TransportControls>
                 <MediaTransportControls VerticalAlignment="Bottom"

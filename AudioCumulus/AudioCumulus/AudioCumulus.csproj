@@ -125,6 +125,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="musicLibrary.cs" />
     <Compile Include="MusicPlayer.xaml.cs">
       <DependentUpon>MusicPlayer.xaml</DependentUpon>
     </Compile>
@@ -172,12 +173,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Google.Apis.YouTube.v3">
-      <Version>1.51.0.2294</Version>
-    </PackageReference>
-    <PackageReference Include="LiteDB">
-      <Version>5.0.10</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
     </PackageReference>
