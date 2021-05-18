@@ -6,15 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    RequestedTheme="Dark">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
 
         <!-- Splitview -->
         <SplitView x:Name="SplitViewMenu" Grid.Column="0" Grid.Row="1" IsPaneOpen="False" DisplayMode="CompactInline" CompactPaneLength="60" OpenPaneLength="375">
             <SplitView.Pane>
-                <StackPanel Background="#403064">
+                <StackPanel Background="{StaticResource SystemAccentColorDark2}">
                     <StackPanel Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" FontSize="25" Content="&#xE700;" Width="60" Height="50" Background="Transparent" Click="Button_Click"></Button>                        
                         <TextBlock Style="{StaticResource TitleTextBlockStyle}" Name="Title" Text="AudioCumulus" FontSize="28" VerticalAlignment="Center"/>

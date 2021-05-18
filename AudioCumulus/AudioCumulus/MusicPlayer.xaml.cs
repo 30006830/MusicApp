@@ -31,7 +31,7 @@ namespace AudioCumulus
         private ObservableCollection<musicLibrary> MusicList = new ObservableCollection<musicLibrary>();
         public MusicPlayer()
         {
-            this.InitializeComponent();                       
+            this.InitializeComponent();
         }
 
 
@@ -43,20 +43,19 @@ namespace AudioCumulus
 
         async private System.Threading.Tasks.Task SetLocalMedia()
         {
-            var pickFile = new FileOpenPicker();
+            var pickFile = new Windows.Storage.Pickers.FileOpenPicker();
 
             pickFile.FileTypeFilter.Add(".mp3");
 
             pickFile.SuggestedStartLocation = PickerLocationId.MusicLibrary;
 
-            StorageFile file = await pickFile.PickSingleFileAsync();
+            var file = await pickFile.PickSingleFileAsync();
 
             if (file != null)
             {
-                var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-                musicPlayer.SetSource(stream, file.ContentType);
+                musicPlayer.Source = MediaSource.CreateFromStorageFile(file);
 
-                musicPlayer.Play();
+                musicPlayer.MediaPlayer.Play();
             }
         }
     }
