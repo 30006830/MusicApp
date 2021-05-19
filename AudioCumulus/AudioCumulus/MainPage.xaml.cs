@@ -52,6 +52,7 @@ namespace AudioCumulus
         private void MusicPlayerIcon_Click(object sender, RoutedEventArgs e)
         {
             Container.Navigate(typeof(MusicPlayer));
+            
         }
 
         private void MusicPlayer_Tapped(object sender, TappedRoutedEventArgs e)

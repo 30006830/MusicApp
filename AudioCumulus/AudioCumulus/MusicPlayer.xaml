@@ -29,31 +29,30 @@
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
             
-            <VariableSizedWrapGrid>
-                <ListView
-                ItemsSource="{x:Bind MusicList}"                                 
-                FontStyle="Oblique"
-                FontWeight="Bold"                
-                IsItemClickEnabled="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="File Name: "/>
-                                <TextBlock Text="{Binding fileName}"/>
+            <VariableSizedWrapGrid Grid.Column="0">
+                <ListView x:Name="myList" Height="Auto" Width="Auto" ItemsSource="{x:Bind MusicList}" SelectionChanged="ListView_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding fileName}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Artist}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Album}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Duration}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding AlbumCover}"/>
+                                </StackPanel>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Artist: "/>
-                                <TextBlock Text="{Binding Artist}"/>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Album: "/>
-                                <TextBlock Text="{Binding Album}"/>
-                            </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </VariableSizedWrapGrid>
 
             <StackPanel Background="{StaticResource SystemAccentColorDark2}" Grid.Column="1"/>
@@ -66,7 +65,8 @@
         <MediaPlayerElement x:Name="musicPlayer"
                       Grid.Row="3"
                       Grid.ColumnSpan="3"
-                      AreTransportControlsEnabled="True">
+                      AreTransportControlsEnabled="True"
+                      Source="{Binding MusicPath}">
             <MediaPlayerElement.TransportControls>
                 <MediaTransportControls VerticalAlignment="Bottom"
                                         Height="90"

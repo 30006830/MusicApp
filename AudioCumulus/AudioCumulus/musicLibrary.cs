@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace AudioCumulus
 {
-    public class musicLibrary
+    class musicLibrary
     {
         public string fileName { get; set; }
         public string Artist { get; set; }
         public string Album { get; set; }
+        public TimeSpan Duration { get; set; }
+        public string MusicPath { get; set; }
     }
 }
