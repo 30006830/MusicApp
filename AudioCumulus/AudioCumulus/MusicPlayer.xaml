@@ -29,28 +29,20 @@
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
 
-            <VariableSizedWrapGrid Grid.Column="0">
-                <ListView x:Name="myList" ItemsSource="{x:Bind MusicList}" 
-                          SelectionChanged="ListView_SelectionChanged"                          
+            <ListView x:Name="myList" ItemsSource="{x:Bind MusicList}" 
+                          ItemClick="myList_ItemClick"                          
                           IsItemClickEnabled="True">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Margin="0,20">
-                                <TextBlock Text="{Binding fileName}"/>
-                                <TextBlock Text="{Binding Artist}"/>
-                                <TextBlock Text="{Binding Album}"/>
-                                <TextBlock Text="{Binding Duration}"/>
-                                <Button x:Name="SelectSong" Height="40" Width="100">
-                                    <StackPanel Orientation="Horizontal">
-                                        <SymbolIcon Symbol="Play"/>
-                                        <TextBlock Text="Play Song"/>
-                                    </StackPanel>
-                                </Button>
-                            </StackPanel>
-                        </DataTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="0,20">
+                            <TextBlock Text="{Binding fileName}"/>
+                            <TextBlock Text="{Binding Artist}"/>
+                            <TextBlock Text="{Binding Album}"/>
+                            <TextBlock Text="{Binding Duration}"/>
+                        </StackPanel>
+                    </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            </VariableSizedWrapGrid>
 
             <StackPanel Background="{StaticResource SystemAccentColorDark2}" Grid.Column="1"/>
             <VariableSizedWrapGrid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -58,12 +50,12 @@
             </VariableSizedWrapGrid>
         </Grid>
         
-        <MediaPlayerElement x:Name="musicPlayer"
+        <MediaElement x:Name="musicPlayer"
                       Grid.Row="3"
                       Grid.ColumnSpan="3"
                       AreTransportControlsEnabled="True"
                       Source="{Binding MusicPath}">
-            <MediaPlayerElement.TransportControls>
+            <MediaElement.TransportControls>
                 <MediaTransportControls VerticalAlignment="Bottom"
                                         Height="90"
                                         IsPlaybackRateButtonVisible="True"
@@ -74,8 +66,8 @@
                                         IsFastRewindEnabled="True"
                                         IsStopButtonVisible="True"
                                         IsStopEnabled="True"/>
-            </MediaPlayerElement.TransportControls>
-        </MediaPlayerElement>
+            </MediaElement.TransportControls>
+        </MediaElement>
         
     </Grid>
 </Page>

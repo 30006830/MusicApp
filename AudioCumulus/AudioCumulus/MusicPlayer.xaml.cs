@@ -34,7 +34,6 @@ namespace AudioCumulus
         public MusicPlayer()
         {
             this.InitializeComponent();
-            myList.SelectionChanged += ListView_SelectionChanged;
         }
 
         private async void musicPlayer_Click(object sender, RoutedEventArgs e)
@@ -50,21 +49,22 @@ namespace AudioCumulus
 
         async private System.Threading.Tasks.Task SetLocalMedia()
         {
-            var pickFile = new Windows.Storage.Pickers.FileOpenPicker();
+            var pickFile = new FileOpenPicker();
 
             pickFile.FileTypeFilter.Add(".mp3");
 
             pickFile.SuggestedStartLocation = PickerLocationId.MusicLibrary;
 
-            var file = await pickFile.PickSingleFileAsync();
+            StorageFile file = await pickFile.PickSingleFileAsync();
 
             if (file != null)
             {
-                musicPlayer.Source = MediaSource.CreateFromStorageFile(file);
+                var stream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                musicPlayer.SetSource(stream, file.ContentType);
 
-                musicPlayer.MediaPlayer.Play();
+                musicPlayer.Play();
             }
-        }   
+        }       
         
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -103,19 +103,16 @@ namespace AudioCumulus
                     MusicPath = file.Path
                 });
             }
-        }
-        
+        }       
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void myList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ListView view = (ListView)sender;
-            musicLibrary song = view.SelectedItem as musicLibrary;
-            string path = song.MusicPath;
-
-            MediaPlayerElement player = new MediaPlayerElement();
-            player.Source = MediaSource.CreateFromUri(new Uri(path));
-
-            player.MediaPlayer.Play();
+            var file = e.ClickedItem as StorageFile;
+            if(file != null)
+            {
+                var stream = await file.OpenReadAsync();
+                musicPlayer.SetSource(stream, file.ContentType);
+            }            
         }
     }
 }
