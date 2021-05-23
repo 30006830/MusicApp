@@ -34,9 +34,8 @@ namespace AudioCumulus
         public MusicPlayer()
         {
             this.InitializeComponent();
-
             myList.SelectionChanged += ListView_SelectionChanged;
-        }      
+        }
 
         private async void musicPlayer_Click(object sender, RoutedEventArgs e)
         {
@@ -78,6 +77,11 @@ namespace AudioCumulus
                 var musicName = musicProperties.Title;
                 var musicDur = musicProperties.Duration;
 
+                if (musicName == "")
+                {
+                    musicName = "Name of File missing";
+                }
+
                 var artist = musicProperties.Artist;
                 if (artist == "")
                 {
@@ -100,7 +104,6 @@ namespace AudioCumulus
                 });
             }
         }
-
         
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

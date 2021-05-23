@@ -12,6 +12,6 @@ namespace AudioCumulus
         public string Artist { get; set; }
         public string Album { get; set; }
         public TimeSpan Duration { get; set; }
-        public string MusicPath { get; set; }
+        public string MusicPath { get; set; }        
     }
 }
