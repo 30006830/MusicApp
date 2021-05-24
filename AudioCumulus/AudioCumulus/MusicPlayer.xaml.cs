@@ -1,30 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.ApplicationModel;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using Windows.Storage.FileProperties;
-using Windows.Media.Core;
-using Windows.Media.Playback;
-using Windows.Media.Playlists;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
-using Windows.UI.Core;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace AudioCumulus
-{    
+{
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -40,12 +26,12 @@ namespace AudioCumulus
         {
             await SetLocalMedia();
         }
-    
+
         protected async override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             base.OnNavigatingFrom(e);
             musicPlayer.Source = null;
-        }    
+        }
 
         async private System.Threading.Tasks.Task SetLocalMedia()
         {
@@ -64,8 +50,8 @@ namespace AudioCumulus
 
                 musicPlayer.Play();
             }
-        }       
-        
+        }
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             StorageFolder musicLib = KnownFolders.MusicLibrary;
@@ -107,12 +93,17 @@ namespace AudioCumulus
 
         private async void myList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var file = e.ClickedItem as StorageFile;
-            if(file != null)
+            var clickedItem = e.ClickedItem as musicLibrary;
+            if(clickedItem != null)
             {
-                var stream = await file.OpenReadAsync();
-                musicPlayer.SetSource(stream, file.ContentType);
-            }            
+                var file = await KnownFolders.MusicLibrary.GetFileAsync(clickedItem.MusicPath);
+                if(file != null)
+                {
+                    var stream = await file.OpenReadAsync();
+                    musicPlayer.SetSource(stream, file.ContentType);
+                    musicPlayer.Play();
+                }   
+            }                     
         }
     }
 }

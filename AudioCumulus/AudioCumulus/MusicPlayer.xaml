@@ -21,7 +21,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Background="{StaticResource SystemAccentColorDark2}" Grid.ColumnSpan="2"/>
-        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="List of Music" Grid.Column="1"/>
+        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="Music Player" Grid.Column="1"/>
 
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
@@ -29,9 +29,10 @@
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
 
-            <ListView x:Name="myList" ItemsSource="{x:Bind MusicList}" 
-                          ItemClick="myList_ItemClick"                          
-                          IsItemClickEnabled="True">
+            <ListView x:Name="myList" 
+                      ItemsSource="{x:Bind MusicList}" 
+                      ItemClick="myList_ItemClick"                          
+                      IsItemClickEnabled="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="0,20">
@@ -54,6 +55,7 @@
                       Grid.Row="3"
                       Grid.ColumnSpan="3"
                       AreTransportControlsEnabled="True"
+                      AutoPlay="True"
                       Source="{Binding MusicPath}">
             <MediaElement.TransportControls>
                 <MediaTransportControls VerticalAlignment="Bottom"
