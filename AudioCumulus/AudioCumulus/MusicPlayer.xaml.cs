@@ -65,7 +65,7 @@ namespace AudioCumulus
 
                 if (musicName == "")
                 {
-                    musicName = "Name of File missing";
+                    musicName = "Title of song not available";
                 }
 
                 var artist = musicProperties.Artist;
