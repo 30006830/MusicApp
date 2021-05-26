@@ -29,17 +29,17 @@
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
 
-            <ListView x:Name="myList" 
-                      ItemsSource="{x:Bind MusicList}" 
-                      ItemClick="myList_ItemClick"                          
+            <ListView x:Name="myList"
+                      ItemsSource="{x:Bind MusicList}"
+                      ItemClick="myList_ItemClick"
                       IsItemClickEnabled="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Margin="0,20">
-                            <TextBlock Text="{Binding fileName}"/>
-                            <TextBlock Text="{Binding Artist}"/>
-                            <TextBlock Text="{Binding Album}"/>
-                            <TextBlock Text="{Binding Duration}"/>
+                        <StackPanel Padding="20">
+                            <TextBlock Text="{Binding fileName}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
+                            <TextBlock Text="{Binding Artist}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0,4,0,0"/>
+                            <TextBlock Text="{Binding Album}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0,4,0,0"/>
+                            <TextBlock Text="{Binding Duration}" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0,4,0,0"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

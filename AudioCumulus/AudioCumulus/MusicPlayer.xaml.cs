@@ -2,6 +2,7 @@
 using Windows.ApplicationModel;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -109,9 +110,11 @@ namespace AudioCumulus
             }
             catch (Exception)
             {
-                
-            }
-                                 
+                string message = "If this error message appears then the function that has been attempted is not available, please use the open file button on the right of the application.";
+
+                MessageDialog messageDialog = new MessageDialog(message, "Error");
+                messageDialog.ShowAsync();
+            }                                 
         }
     }
 }

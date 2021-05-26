@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AudioCumulus
 {
-    class musicLibrary
+    public class musicLibrary
     {
         public string fileName { get; set; }
         public string Artist { get; set; }
