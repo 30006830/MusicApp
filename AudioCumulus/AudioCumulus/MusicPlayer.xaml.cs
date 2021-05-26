@@ -1,12 +1,11 @@
 ﻿using System;
-using Windows.Media.Playback;
+using Windows.ApplicationModel;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System.Collections.ObjectModel;
-using Windows.Media.Core;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -18,9 +17,6 @@ namespace AudioCumulus
     public sealed partial class MusicPlayer : Page
     {
         private ObservableCollection<musicLibrary> MusicList = new ObservableCollection<musicLibrary>();
-        private MediaPlaybackList _mediaPlaybackList;
-        private string file;
-
         public MusicPlayer()
         {
             this.InitializeComponent();
@@ -58,7 +54,41 @@ namespace AudioCumulus
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            Windows.Storage.FileProperties.MusicProperties musicProperties = await file.Properties.GetMusicPropertiesAsync();
+            StorageFolder musicLib = KnownFolders.MusicLibrary;
+            var files = await musicLib.GetFilesAsync();
+
+            foreach (var file in files)
+            {
+                var musicProperties = await file.Properties.GetMusicPropertiesAsync();
+                var musicName = musicProperties.Title;
+                var musicDur = musicProperties.Duration;
+
+                if (musicName == "")
+                {
+                    musicName = "Name of File missing";
+                }
+
+                var artist = musicProperties.Artist;
+                if (artist == "")
+                {
+                    artist = "Artist not found";
+                }
+
+                var album = musicProperties.Album;
+                if (album == "")
+                {
+                    album = "Album not found";
+                }
+
+                MusicList.Add(new musicLibrary
+                {
+                    fileName = musicName,
+                    Artist = artist,
+                    Album = album,
+                    Duration = musicDur,
+                    MusicPath = file.Path
+                });
+            }
         }       
 
         private async void myList_ItemClick(object sender, ItemClickEventArgs e)
