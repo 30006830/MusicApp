@@ -65,7 +65,7 @@ namespace AudioCumulus
 
                 if (musicName == "")
                 {
-                    musicName = "Name of File missing";
+                    musicName = "Title of song not available";
                 }
 
                 var artist = musicProperties.Artist;
@@ -93,17 +93,25 @@ namespace AudioCumulus
 
         private async void myList_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var clickedItem = e.ClickedItem as musicLibrary;
-            if(clickedItem != null)
+            try
             {
-                var file = await KnownFolders.MusicLibrary.GetFileAsync(clickedItem.MusicPath);
-                if(file != null)
+                var clickedItem = e.ClickedItem as musicLibrary;
+                if(clickedItem != null)
                 {
-                    var stream = await file.OpenReadAsync();
-                    musicPlayer.SetSource(stream, file.ContentType);
-                    musicPlayer.Play();
-                }   
-            }                     
+                    var file = await KnownFolders.MusicLibrary.GetFileAsync(clickedItem.MusicPath);
+                    if(file != null)
+                    {
+                        var stream = await file.OpenReadAsync();
+                        musicPlayer.SetSource(stream, file.ContentType);
+                        musicPlayer.Play();
+                    }   
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
+                                 
         }
     }
 }
